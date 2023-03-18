@@ -4,6 +4,7 @@ import datetime as dt1
 import pyautogui as pag1 
 import cv2 
 import requests
+import pyperclip
 clear = lambda: os.system('cls')
 clear()
 def set_area1(): 
@@ -35,6 +36,7 @@ def click1():
         files = {'imagedata':f.read()}
         response = requests.request('post', URL, headers=headers, files=files)
         asdfsghf=response.text[response.text.find('"url":"'):response.text.find('","access_policy":null}')]
+        pyperclip.copy(asdfsghf.replace('"url":"',''))
         print(asdfsghf.replace('"url":"',''))
     return 1 
 
